@@ -6,7 +6,7 @@ apt install net-tools
 apt-get install unzip -y
 apt-get install unzip default-jre mysql-server -y
 / Not required in actual script
-MYSQL_ROOT_PASSWORD=!Traccar321
+MYSQL_ROOT_PASSWORD=!Nab5566adfr
 SECURE_MYSQL=$(expect -c "
 set timeout 10
 spawn mysql_secure_installation
@@ -26,9 +26,9 @@ expect eof
 ")
 
 echo "$SECURE_MYSQL"
- mysql -u root -p!Traccar321 -e "create database new_d"
-  mysql -u root -p!Traccar321 -e "CREATE USER 'traccar1'@'localhost' IDENTIFIED BY '!Traccar321'"
-  mysql -u root -p!Traccar321 -e "GRANT ALL PRIVILEGES ON new_d.* TO traccar1@localhost"
+ mysql -u root -p!Traccar321 -e "create database nexdb"
+  mysql -u root -p!Traccar321 -e "CREATE USER 'nexgps'@'localhost' IDENTIFIED BY '!Traccar321'"
+  mysql -u root -p!Traccar321 -e "GRANT ALL PRIVILEGES ON nexdb.* TO nexgps@localhost"
 wget https://www.traccar.org/download/traccar-linux-64-latest.zip
 unzip traccar-linux-*.zip && ./traccar.run
 cat > /opt/traccar/conf/traccar.xml << EOF
@@ -42,9 +42,9 @@ cat > /opt/traccar/conf/traccar.xml << EOF
 	<entry key='web.port'>8082</entry>
 
     <entry key='database.driver'>com.mysql.jdbc.Driver</entry>
-    <entry key='database.url'>jdbc:mysql://localhost/new_d?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC&amp;useSSL=false&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8&amp;sessionVariables=sql_mode=''</entry>
-    <entry key='database.user'>traccar1</entry>
-    <entry key='database.password'>!Traccar321</entry>
+    <entry key='database.url'>jdbc:mysql://localhost/nexdb?allowPublicKeyRetrieval=true&amp;useSSL=false&amp;serverTimezone=UTC&amp;useSSL=false&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;useUnicode=yes&amp;characterEncoding=UTF-8&amp;sessionVariables=sql_mode=''</entry>
+    <entry key='database.user'>nexgps</entry>
+    <entry key='database.password'>!Nab5566adfr</entry>
 
 </properties>
 EOF
